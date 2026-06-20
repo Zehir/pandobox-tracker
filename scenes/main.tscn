@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://15fcbrwhyn0t"]
+
+[ext_resource type="Script" uid="uid://bsesuq1rdetp3" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://led4lyykk442" path="res://providers/usb2snes.gd" id="2_0wfyh"]
+
+[node name="Main" type="Control" unique_id=1855701028 node_paths=PackedStringArray("usb_2snes")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+usb_2snes = NodePath("Providers/USB2SNES")
+
+[node name="Providers" type="Node" parent="." unique_id=2096220580]
+
+[node name="USB2SNES" type="Node" parent="Providers" unique_id=1137819402]
+script = ExtResource("2_0wfyh")
+metadata/_custom_type_script = "uid://led4lyykk442"
+
+[connection signal="connected" from="Providers/USB2SNES" to="." method="_on_usb_2snes_connected"]
+[connection signal="error_message_changed" from="Providers/USB2SNES" to="." method="_on_usb_2snes_error_message_changed"]
+[connection signal="status_changed" from="Providers/USB2SNES" to="." method="_on_usb_2snes_status_changed"]

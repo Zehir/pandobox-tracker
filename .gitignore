@@ -2,6 +2,9 @@
 .godot/
 .nomedia
 
+# Godot Addons
+addons/godot_sandbox/bin/~*
+
 # Godot-specific ignores
 .import/
 export.cfg
